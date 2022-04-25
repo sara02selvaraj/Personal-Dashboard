@@ -10,7 +10,7 @@ async function renderPage() {
     }
 }
 
-async function renderCoin(){
+async function renderCoinData(){
     try{
         let response = await fetch(`https://api.coingecko.com/api/v3/coins/dogecoin`)
         if(!response.ok) {
@@ -32,5 +32,31 @@ async function renderCoin(){
         console.error(error)
     }
 }
-renderCoin()
+renderCoinData()
+
 renderPage()
+
+function getcurrentTime() {
+    const date = new Date().toLocaleTimeString('en-US', {timeStyle: 'short'})
+    document.getElementById('time').textContent = date
+}
+setInterval(getcurrentTime, 1000)
+
+navigator.geolocation.getCurrentPosition((position) => {
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`)
+    .then((res) => {
+        if(!res.ok) {
+            throw Error('Weather data not available')
+        }
+        return res.json()
+    }).then(data => {
+        console.log(data)
+        const img = document.createElement('img')
+        img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        const temp = document.createElement('p')
+        temp.textContent = `${Math.round(data.main.temp)}º`
+        const weatherEl = document.getElementById('weather')
+        weatherEl.append(img, temp)
+    }).catch((err) => console.error(err))
+});
+
