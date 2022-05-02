@@ -60,3 +60,9 @@ navigator.geolocation.getCurrentPosition((position) => {
     }).catch((err) => console.error(err))
 });
 
+async function renderQuote() {
+    let response = await fetch(`https://api.quotable.io/random`)
+    let data = await response.json()
+    document.getElementById('quote-container').textContent = data.content
+}
+renderQuote()
