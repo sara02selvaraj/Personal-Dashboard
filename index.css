@@ -52,3 +52,15 @@ div#weather {
     display: flex;
     align-items: center;
 }
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+#author {
+    grid-column: 1;
+}
+#quote-container {
+    grid-column: 2 ;
+    font-style: italic;
+    font-size: 1.3rem;
+}
