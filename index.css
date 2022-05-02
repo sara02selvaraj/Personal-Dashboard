@@ -63,4 +63,5 @@ div#weather {
     grid-column: 2 ;
     font-style: italic;
     font-size: 1.3rem;
+    justify-self: center;
 }
