@@ -54,7 +54,8 @@ div#weather {
 }
 .footer {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 200px;
+    grid-template-rows: 50px;
 }
 #author {
     grid-column: 1;
@@ -64,4 +65,10 @@ div#weather {
     font-style: italic;
     font-size: 1.3rem;
     justify-self: center;
+}
+#todo-El {
+    border:none;
+}
+#add-btn {
+    border: none;
 }

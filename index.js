@@ -65,4 +65,14 @@ async function renderQuote() {
     let data = await response.json()
     document.getElementById('quote-container').textContent = data.content
 }
+
+const todoEl = document.getElementById('todo-El')
+const addBtn = document.getElementById('add-btn')
+const todoList = []
+addBtn.addEventListener('click', () => {
+     todoList.push(todoEl.value)
+     todoEl.value=''
+    localStorage.setItem('todo', todoList)
+})
+todoEl.value
 renderQuote()
