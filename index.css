@@ -54,8 +54,9 @@ div#weather {
 }
 .footer {
     display: grid;
-    grid-template-columns: 1fr 2fr 200px;
-    grid-template-rows: 50px;
+    grid-template-columns: 1fr 2fr 300px;
+    grid-template-rows: 100px;
+    align-items: center;
 }
 #author {
     grid-column: 1;
@@ -66,9 +67,28 @@ div#weather {
     font-size: 1.3rem;
     justify-self: center;
 }
-#todo-El {
+#todo-container {
+    opacity: 0.5;
+}
+#todo-El,
+#add-btn,
+#action-btn {
     border:none;
+    outline:none;
+    
+    font-size: 1rem;
+}
+#todo-El {
+    color:#fff;
+    background: none;
+    border-bottom: 1px solid #fff;
 }
 #add-btn {
-    border: none;
+    color: #fff;
+    cursor: pointer;
+    background: none;
+}
+#action-btn {
+    cursor: pointer;
+    border-radius:5px;
 }
