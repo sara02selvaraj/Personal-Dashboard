@@ -68,11 +68,18 @@ async function renderQuote() {
 
 const todoEl = document.getElementById('todo-El')
 const addBtn = document.getElementById('add-btn')
+const actionBtn = document.getElementById('action-btn')
 const todoList = []
 addBtn.addEventListener('click', () => {
      todoList.push(todoEl.value)
-     todoEl.value=''
     localStorage.setItem('todo', todoList)
+})
+actionBtn.addEventListener('click', () => {
+    document.getElementById('list').classList.toggle('toggle')
+    let html = todoList.map((todo) => {
+        return `<ul><li>${todo}</li></ul>`
+    })
+    
 })
 todoEl.value
 renderQuote()
