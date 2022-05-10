@@ -55,7 +55,7 @@ div#weather {
 .footer {
     display: grid;
     grid-template-columns: 1fr 2fr 300px;
-    grid-template-rows: 100px;
+    grid-template-rows: 300px;
     align-items: center;
 }
 #author {
@@ -72,10 +72,9 @@ div#weather {
 }
 #todo-El,
 #add-btn,
-#action-btn {
+#delete-btn {
     border:none;
     outline:none;
-    
     font-size: 1rem;
 }
 #todo-El {
@@ -83,12 +82,9 @@ div#weather {
     background: none;
     border-bottom: 1px solid #fff;
 }
-#add-btn {
+#add-btn,
+#delete-btn {
     color: #fff;
     cursor: pointer;
     background: none;
-}
-#action-btn {
-    cursor: pointer;
-    border-radius:5px;
 }
