@@ -68,18 +68,26 @@ async function renderQuote() {
 
 const todoEl = document.getElementById('todo-El')
 const addBtn = document.getElementById('add-btn')
-const actionBtn = document.getElementById('action-btn')
+const deleteBtn = document.getElementById('delete-btn')
+
 const todoList = []
+
 addBtn.addEventListener('click', () => {
      todoList.push(todoEl.value)
-    localStorage.setItem('todo', todoList)
+    localStorage.setItem('todo', JSON.stringify(todoList))
+    render()
 })
-actionBtn.addEventListener('click', () => {
-    document.getElementById('list').classList.toggle('toggle')
-    let html = todoList.map((todo) => {
-        return `<ul><li>${todo}</li></ul>`
-    })
-    
+
+function render(){
+    let todoList = JSON.parse(localStorage.getItem('todo'))
+    let html = todoList.map((item) => `<ul><li>${item}</li></ul>`).join('')
+    document.getElementById('list').innerHTML = html
+}
+
+deleteBtn.addEventListener('click', () => {
+    localStorage.removeItem('todo')
+    document.getElementById('list').innerHTML = ''
 })
+
 todoEl.value
 renderQuote()
